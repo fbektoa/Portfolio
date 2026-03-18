@@ -1,0 +1,482 @@
+/* Font */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pretendard", sans-serif;
+}
+
+/* 유리 재질 공통 */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 헤더 & 네비게이션 */
+.nav-menu {
+  display: none;
+}
+.glass-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+h1.logo {
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+h1 a{color: #fff;}
+
+/* 햄버거 버튼 */
+.hamburger {
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 101;
+}
+.hamburger span {
+  width: 25px;
+  height: 2px;
+  background: #fff;
+  transition: 0.3s;
+}
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* 모바일 네비게이션 */
+.mo-nav-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  transition: 0.5s;
+}
+.mo-nav-menu.active {
+  right: 0;
+}
+.mo-nav-menu ul {
+  list-style: none;
+  text-align: center;
+}
+.mo-nav-menu a {
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin: 20px 0;
+}
+
+/* 섹션 공통 */
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 카드 & 섹션 */
+.glass-card{
+  padding: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 60%;
+  max-width: 600px;
+  margin: auto;
+}
+.card-thumb{
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.card-thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.glass-card:hover .card-thumb img{
+  transform: scale(1.1);
+}
+
+.title2{
+  color: #fff;
+  font-size: 1.125em;
+  height: 50px;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+.sub-title{
+  color: #c0c0c0;
+  font-size: 1em;
+}
+
+/* 버튼 */
+.btn-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.glass-btn {
+  /* 1. 핵심: 고정 높이 해제 및 중앙 정렬 */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 2. 패딩으로 내부 여백 조절 (상하 여백을 충분히) */
+  padding: 8px 15px !important; 
+  
+  /* 3. 텍스트 관련 설정 */
+  text-align: center;
+  font-size: 0.875em;
+  font-weight: 500;
+  color: #fff;
+
+  /* 4. 기존 디자인 유지 */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.glass-btn:hover {
+  background: #fde9b4;
+  border-color: #fde9b4;
+  color: #1a1a1a;
+  box-shadow: 0 5px 15px rgba(253, 233, 180, 0.3);
+  transform: translateY(-3px); /* 살짝 위로 떠오르게 */
+}
+
+/* 좌우 버튼 */
+/* 1. 기본 화살표 스타일 초기화 및 위치 조정 */
+.fp-controlArrow {
+  top: 50% !important;
+  transform: translateY(-50%);
+  border: none !important; /* 기본 삼각형 모양 제거 */
+  width: 40px !important;
+  height: 40px !important;
+  background: rgba(255, 255, 255, 0.08) !important; /* 유리 느낌 배경 */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 2. 오른쪽 화살표 (Next): 오른쪽 닷 메뉴와 안 겹치도록 안으로 밀기 */
+.fp-controlArrow.fp-next {
+  right: 20px !important; /* 닷 메뉴가 보통 20~40px 위치하므로 80px 정도로 넉넉히 띄움 */
+}
+
+/* 3. 왼쪽 화살표 (Prev): 대칭을 위해 왼쪽도 동일하게 조정 */
+.fp-controlArrow.fp-prev {
+  left: 20px !important;
+}
+
+/* 4. 화살표 내부 아이콘 만들기 (삼각형 대신 세련된 꺽쇠) */
+.fp-controlArrow.fp-next::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid #fff;
+  border-right: 3px solid #fff;
+  transform: rotate(45deg);
+  margin-right: 3px;
+}
+
+.fp-controlArrow.fp-prev::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid #fff;
+  border-right: 3px solid #fff;
+  transform: rotate(-135deg);
+}
+
+/* 5. 마우스 호버 시 효과 */
+.fp-controlArrow:hover {
+  background: #fde9b4 !important; /* 포인트 컬러인 블루 적용 */
+  box-shadow: 0 5px 15px rgba(253, 233, 180, 0.3);
+}
+.fp-controlArrow:hover::after{
+  border-top-color: #1a1a1a;
+  border-right-color: #1a1a1a;
+}
+
+/* 모달 */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: 0.4s;
+}
+.modal-overlay.active {
+  display: block;
+  opacity: 1;
+}
+.modal-content {
+  margin: 5vh auto;
+  width: 90%;
+  max-width: 900px;
+  height: 85vh;
+  border-radius: 30px;
+  position: relative;
+  overflow-y: auto;
+  padding: 40px;
+  transform: scale(0.9);
+  transition: 0.4s;
+}
+.modal-overlay.active .modal-content {
+  transform: scale(1);
+}
+
+#modalBody{color: #fff;}
+
+#modalBody img {
+  width: 100%;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+.tag {
+  background: rgba(253, 233, 180, 0.3);
+  color: #fde9b4;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-right: 5px;
+  border: 1px solid rgba(253, 233, 180, 0.3);
+}
+.edu-note {
+  background: rgba(253, 233, 180, 0.5);
+  border-left: 4px solid #fde9b4;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 0 10px 10px 0;
+  color: #fff;
+}
+
+.close-btn {
+  position: absolute;
+  right: 35px;
+  top: 25px;
+  font-size: 45px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s;
+  z-index: 10;
+}
+.close-btn:hover {
+  color: #fff;
+}
+
+/* [1] 공통 & 모바일 기본 스타일 (0px ~ 767px) */
+.fp-auto-height, .fp-tableCell{
+  display: block;
+  height: auto;
+}
+
+.footer-container {
+    width: 100%;
+    padding: 40px 20px 20px; /* 모바일은 여백을 좁게 */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    text-align: center; /* 모바일은 중앙 정렬이 깔끔함 */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* 모바일은 세로 배치 */
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-name { 
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    margin-bottom: 10px; 
+}
+
+.info-group p { 
+    font-size: 0.9rem; 
+    color: rgba(255,255,255,0.7); 
+    line-height: 1.6; 
+    margin-bottom: 5px;
+}
+
+.resume-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footer-bottom {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.copy { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+
+/* 반응형 (Tablet) */
+@media all and (min-width: 768px) {
+  .card-thumb{
+  height: 250px;
+  }
+  .fp-controlArrow.fp-next {
+  right: 80px !important; /* 닷 메뉴가 보통 20~40px 위치하므로 80px 정도로 넉넉히 띄움 */
+  
+}
+
+/* 3. 왼쪽 화살표 (Prev): 대칭을 위해 왼쪽도 동일하게 조정 */
+.fp-controlArrow.fp-prev {
+  left: 80px !important;
+}
+
+  .glass-card {
+    width: 65%;
+    padding: 30px 20px;
+  }
+
+  .modal-content {
+    width: 95%;
+    height: 90vh;
+    padding: 20px;
+  }
+
+  .footer-container {
+        padding: 60px 5% 30px;
+        text-align: left; /* PC는 다시 왼쪽 정렬 */
+    }
+
+    .footer-content {
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: flex-end;
+        max-width: 1200px;
+        margin: 0 auto 40px;
+    }
+
+    .info-group{
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-name { 
+      font-size: 1.8rem; 
+      padding-right: 30px;
+    }
+
+    .info-group p { 
+      font-size: 1rem;
+      padding-right: 30px;
+    }
+
+    .resume-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        border-top: 0;
+    }
+
+    .title2{
+      margin: 0;
+      line-height: 50px;
+    }
+}
+
+/* 반응형 (PC) */
+@media all and (min-width: 1200px) {
+  .mobile-nav,
+  .hamburger {
+    display: none;
+  }
+  .nav-menu {
+    display: block;
+  }
+
+  .nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+  }
+  .nav-menu a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+  .nav-menu li.active a,
+  .nav-menu a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #fff;
+  }
+
+  .glass-card {
+    width: 90% !important;
+    padding: 30px 20px;
+  }
+
+  .footer-container {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
