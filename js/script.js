@@ -30,6 +30,12 @@ const projectData = {
     edu: "Figma의 Auto Layout 시스템을 CSS 변수 기반의 Grid System으로 제작, 일관성과 시각적 리듬감을 준 리디자인 입니다.",
     img: "./img2/Ui_Kit_Redesign2.jpg",
   },
+  pc_3: {
+    title: "Redesign 03",
+    tags: ["UI/UX 구조 분석", "브랜드 에셋 및 재현"],
+    edu: "강의를 통해 기본적인 레이아웃 구조를 학습한 후, 실제 서비스의 생동감을 재현하기 위해 최신 브랜드 에셋 적용 및 CSS 미세 조정을 거쳐 완성도를 높인 프로젝트입니다.",
+    img: "./img3/starbucks_clone.jpg",
+  },
   app_1: {
     title: "Concept App 01",
     tags: ["피그마", "프로토타입", "컴포넌트"],
@@ -43,16 +49,28 @@ const projectData = {
     img: "",
   },
   etc_1: {
-    title: "Graphics Gallery 01",
-    tags: ["Banner", "Book Cover"],
-    edu: "배너 디자인",
-    img: "",
+    title: "브랜드 무드 배너",
+    tags: ["Banner", "브랜드 무드", "풀 착용 컷"],
+    edu: "브랜드의 겨울 무드를 보여주고, 실제 쇼핑 화면과 유사한 몰입감을 설계한 디자인",
+    img: "./img3/banner_1.jpg",
   },
   etc_2: {
-    title: "Graphics Gallery 02",
-    tags: ["Banner", "Book Cover"],
-    edu: "북커버 디자인",
-    img: "",
+    title: "크리스마스 프로모션 배너",
+    tags: ["Banner", "3D 오브젝트", "CTA"],
+    edu: "3D 오브젝트와 다양한 오너먼트를 배치하여 직관적으로 표현한 디자인",
+    img: "./img3/banner_2.jpg",
+  },
+  etc_3: {
+    title: "새해 할인 배너",
+    tags: ["Banner", "CTA"],
+    edu: "달리는 말 이미지를 컷아웃을 사용해 시선 유도, 텍스트 내부 자연 텍스처로 입체감을 연출한 디자인",
+    img: "./img3/banner_3.jpg",
+  },
+  etc_4: {
+    title: "북커버 리디자인",
+    tags: ["Book Cover", "풀커버 사진", "베네핏"],
+    edu: "리디자인을 통해 시각적 개선 역량을 보여주고자한 디자인",
+    img: "./img3/bookcover_4.jpg",
   },
 };
 
