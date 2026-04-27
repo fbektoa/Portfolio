@@ -27,20 +27,38 @@ if (clearBg) {
 
 
 
-
 const clearBg = document.getElementById('clear-bg');
 
-// 1. 터치 기기 여부 판별 (아이패드, 아이폰 등)
+// 1. 터치 기기(아이패드, 아이폰 등)인지 판별하는 변수
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
 if (clearBg) {
+    // 2. PC(마우스가 있는 환경)에서만 마스크 효과 실행
     if (!isTouchDevice) {
-        // [PC 환경] 마우스가 있을 때만 인터랙션 실행
         window.addEventListener('mousemove', (e) => {
             const mouseX = e.clientX;
             const mouseY = e.clientY;
 
+            // 마스크 판의 중심을 포인터 위치와 맞추는 보정 계산
             const moveX = mouseX - window.innerWidth;
             const moveY = mouseY - window.innerHeight;
 
-            g
+            gsap.to(clearBg, {
+                duration: 0.6,
+                ease: "power2.out",
+                webkitMaskPosition: `${moveX}px ${moveY}px`,
+                maskPosition: `${moveX}px ${moveY}px`
+            });
+        });
+    } 
+    // 3. 아이패드/모바일 등 터치 기기일 때 실행
+    else {
+        // 마스크 속성을 강제로 제거하여 배경 이미지가 바로 보이게 설정
+        clearBg.style.webkitMaskImage = 'none';
+        clearBg.style.maskImage = 'none';
+        
+        // iOS 배경 확대 버그 방지를 위해 고정 속성도 함께 해제 (JS로 처리)
+        clearBg.style.backgroundAttachment = 'scroll';
+    }
+}
+
